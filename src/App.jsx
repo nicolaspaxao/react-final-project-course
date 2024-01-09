@@ -1,5 +1,12 @@
+import "./App.css";
+import { Api } from "./api/Api";
+
 function App() {
-  return <div>App React</div>;
+  return (
+    <div>
+      <Api />
+    </div>
+  );
 }
 
 export default App;
