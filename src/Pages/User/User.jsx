@@ -2,8 +2,8 @@ import React from "react";
 import { UserHeader } from "./components/UserHeader";
 import { Route, Routes } from "react-router-dom";
 import { Feed } from "../Feed/Feed";
-import { UserPhotoPost } from "./UserPhotoPost";
-import { UserStats } from "./UserStats";
+import { UserPhotoPost } from "./PhotoPost/UserPhotoPost";
+import { UserStats } from "./Stats/UserStats";
 
 export const User = () => {
   return (
