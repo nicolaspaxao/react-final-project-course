@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Input } from "../../Components/Forms/Input/Input";
 import { Button } from "../../Components/Forms/Button/Button";
-import { Error } from "../../Components/Helpers/Error/Error";
+import { ErrorWidget } from "../../Components/Helpers/Error/Error";
 import { useForm } from "../../Hooks/useForm";
 import { USER_POST } from "../../api";
 import { UserContext } from "../../UserContext";
@@ -40,7 +40,7 @@ export const LoginCreate = () => {
         ) : (
           <Button>Cadastrar</Button>
         )}
-        <Error error={error} />
+        <ErrorWidget error={error} />
       </form>
     </section>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./UserPhotoPost.module.css";
 import { Input } from "../../../Components/Forms/Input/Input";
 import { Button } from "../../../Components/Forms/Button/Button";
-import { Error } from "../../../Components/Helpers/Error/Error";
+import { ErrorWidget } from "../../../Components/Helpers/Error/Error";
 import { useForm } from "../../../Hooks/useForm";
 import { useFetch } from "../../../Hooks/useFetch";
 import { PHOTO_POST } from "../../../api";
@@ -58,7 +58,7 @@ export const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        <Error error={error} />
+        <ErrorWidget error={error} />
       </form>
       <div>
         {img.preview && (

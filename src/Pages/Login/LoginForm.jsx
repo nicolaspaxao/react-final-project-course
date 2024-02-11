@@ -4,7 +4,7 @@ import { Input } from "../../Components/Forms/Input/Input";
 import { Button } from "../../Components/Forms/Button/Button";
 import { useForm } from "../../Hooks/useForm";
 import { UserContext } from "../../UserContext";
-import { Error } from "../../Components/Helpers/Error/Error";
+import { ErrorWidget } from "../../Components/Helpers/Error/Error";
 import styles from "./LoginForm.module.css";
 import stylesBtn from "../../Components/Forms/Button/Button.module.css";
 
@@ -29,7 +29,7 @@ export const LoginForm = () => {
         <Button disabled={loading}>
           {loading ? "Carregando..." : "Entrar"}
         </Button>
-        <Error error={error} />
+        <ErrorWidget error={error} />
       </form>
       <Link className={styles.perdeu} to="/login/perdeu">
         Perdeu a senha?
