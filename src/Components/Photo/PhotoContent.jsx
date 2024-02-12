@@ -6,11 +6,11 @@ import { UserContext } from "../../UserContext";
 import { PhotoDelete } from "./PhotoDelete";
 import { ImageWidget } from "../Helpers/Image/Image";
 
-export const PhotoContent = ({ data }) => {
+export const PhotoContent = ({ data, single }) => {
   const user = useContext(UserContext);
   const { photo, comments } = data;
   return (
-    <div className={styles.photo}>
+    <div className={`${styles.photo} ${single && styles.single}`}>
       <div className={styles.img}>
         <ImageWidget src={photo.src} alt={photo.title} />
       </div>

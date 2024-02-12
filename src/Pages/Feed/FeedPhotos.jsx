@@ -3,20 +3,24 @@ import { FeedPhotoItem } from "./FeedPhotoItem";
 import { useFetch } from "../../Hooks/useFetch";
 import { PHOTOS_GET } from "../../api";
 import { ErrorWidget } from "../../Components/Helpers/Error/Error";
-import { LoadingWidget } from "../../Components/Helpers/Loading";
+import { LoadingWidget } from "../../Components/Helpers/Loading/Loading";
 import styles from "./FeedPhotos.module.css";
 
-export const FeedPhotos = ({ setModalPhoto }) => {
+export const FeedPhotos = ({ page, user, setModalPhoto, setInfinite }) => {
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
     async function fetchPhotos() {
-      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
-      const { json } = await request(url, options);
+      const total = 6;
+      const { url, options } = PHOTOS_GET({ page: page, total: total, user });
+      const { response, json } = await request(url, options);
+      if (response && response.ok && json.length < total) {
+        setInfinite(false);
+      }
     }
 
     fetchPhotos();
-  }, [request]);
+  }, [request, user, page, setInfinite]);
 
   if (error) return <ErrorWidget error={error} />;
   if (loading) return <LoadingWidget />;

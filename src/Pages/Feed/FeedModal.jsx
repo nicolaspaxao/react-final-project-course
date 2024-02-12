@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./FeedModal.module.css";
 import { useFetch } from "../../Hooks/useFetch";
 import { ErrorWidget } from "../../Components/Helpers/Error/Error";
-import { LoadingWidget } from "../../Components/Helpers/Loading";
+import { LoadingWidget } from "../../Components/Helpers/Loading/Loading";
 import { PHOTO_GET } from "../../api";
 import { PhotoContent } from "../../Components/Photo/PhotoContent";
 
