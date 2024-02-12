@@ -4,7 +4,7 @@ import { useFetch } from "../../../Hooks/useFetch";
 import { STATS_GET } from "../../../api";
 import { LoadingWidget } from "../../../Components/Helpers/Loading/Loading";
 import { ErrorWidget } from "../../../Components/Helpers/Error/Error";
-const UserStatsGraphs = lazy(() => import("./UserStatsGraphs"));
+import { UserStatsGraphs } from "./UserStatsGraphs";
 
 export const UserStats = () => {
   const { data, loading, error, request } = useFetch();
@@ -21,10 +21,10 @@ export const UserStats = () => {
   if (error) return <ErrorWidget error={error} />;
   if (data)
     return (
-      <Suspense fallback={<div></div>}>
+      <>
         <Head title="Estatísticas" />
         <UserStatsGraphs data={data} />
-      </Suspense>
+      </>
     );
   return null;
 };
